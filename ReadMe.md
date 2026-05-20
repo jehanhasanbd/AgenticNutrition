@@ -50,7 +50,7 @@ AgenticNutrition/
 │   ├── safety/                    # Input/output safety
 │   │   └── safety.py
 │   └── tools/                     # Custom tools
-│       ├── user_location.py
+│       ├── user_location.py                                      ✅
 │       ├── weather_and_season.py
 │       └── local_food_prices.py
 ├── data/                          # Data sources
@@ -92,15 +92,18 @@ pip install -r requirements.txt
 
 ### 4. Environment variables
 
-Create a `.env` file:
+Create a `.env` file in the project root:
 
 ```env
-OPENAI_API_KEY=your_key_here
+# LLM Provider (choose one)
+OPENAI_API_KEY=your_openai_key_here
 # or
-GROQ_API_KEY=your_key_here
+GROQ_API_KEY=your_groq_key_here
 
-WEATHER_API_KEY=your_weather_api_key
-MAPS_API_KEY=your_maps_api_key
+# External APIs
+LOCATION_API_KEY=your_ipgeolocation_key_here     # Get from https://app.ipgeolocation.io
+WEATHER_API_KEY=your_weather_key_here            # Get from OpenWeatherMap
+MAPS_API_KEY=your_google_maps_key_here           # Get from Google Cloud Console
 ```
 
 ### 5. Run the app
