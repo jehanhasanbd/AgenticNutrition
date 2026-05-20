@@ -51,8 +51,8 @@ AgenticNutrition/
 │   │   └── safety.py
 │   └── tools/                     # Custom tools
 │       ├── user_location.py                                      ✅
-│       ├── weather_and_season.py
-│       └── local_food_prices.py
+│       ├── weather_and_season.py                                 ✅
+│       └── local_food_prices.py                                  ✅
 ├── data/                          # Data sources
 │   ├── nutrition.csv
 │   ├── food_prices.csv
