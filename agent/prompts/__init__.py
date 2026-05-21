@@ -1,4 +1,4 @@
-import rag_prompt
+from agent.prompts.rag_prompt import RAG_PROMPT
 __all__ = [
-    "rag_prompt"
+    "RAG_PROMPT"
 ]

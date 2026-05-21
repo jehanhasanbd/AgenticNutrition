@@ -77,8 +77,8 @@ def tool_context_node(state: AgentState, config:RunnableConfig) -> Dict[str, Any
             "date": today
         })
         predicted_prices.append({
-            "product":product,
-            'price':prediction
+            "product": product,
+            'price': prediction
         })
 
     tool_context = {

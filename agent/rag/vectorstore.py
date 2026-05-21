@@ -2,7 +2,7 @@ from typing import Dict, Any, List, Optional
 from langchain_community.vectorstores import FAISS
 
 from llm_manager import get_embedding_model
-from ehr_to_docs import ehr_to_documents
+from agent.rag.ehr_to_docs import ehr_to_documents
 
 
 def build_ehr_vectorstore(ehr: Dict[str, Any]) -> FAISS:

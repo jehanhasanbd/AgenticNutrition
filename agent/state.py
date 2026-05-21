@@ -6,19 +6,19 @@ from langchain_core.messages import BaseMessage
 
 
 class AgentState(TypedDict):
-    messages = Annotated[list[BaseMessage], add_messages]
+    messages: Annotated[list[BaseMessage], add_messages]
 
     # user-provided profile and constraints
-    user_profile = Dict[str, Any]
-    hard_constraints = List[str]
+    user_profile: Dict[str, Any]
+    hard_constraints: List[str]
 
     # EHR / RAG
-    ehr_json = Dict[str, Any]
-    ehr_ready = bool
-    ehr_context = str
+    ehr_json: Dict[str, Any]
+    ehr_ready: bool
+    ehr_context: str
 
     # tool context
-    tool_context = Dict[str, Any]
+    tool_context: Dict[str, Any]
 
     # final text
-    final_answer = str
+    final_answer: str

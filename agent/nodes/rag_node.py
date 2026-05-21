@@ -6,7 +6,6 @@ from agent.state import AgentState
 from agent.prompts.rag_prompt import RAG_PROMPT
 
 from agent.rag import (
-
     build_ehr_vectorstore,
     retrieve_ehr_context
 )
@@ -41,4 +40,5 @@ def rag_node(state: AgentState, config:RunnableConfig) -> Dict[str, Any]:
     )
     ehr_context = "\n".join([f" - ({doc.metadata.get("type","ehr")}) {doc.page_content}" for doc in docs])
     return {"ehr_context": ehr_context}
+
 

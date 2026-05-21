@@ -9,7 +9,6 @@ pydantic>=2.7.0
 python-dotenv>=1.0.1
 requests>=2.32.3
 pandas>=2.2.2
-torch
 transformers
 langchain
 langchain-huggingface
@@ -21,4 +20,4 @@ langchain_google_genai
 langchain_ollama
 notebook
 xgboost
-# pip install torch --index-url https://download.pytorch.org/whl/cu121
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121

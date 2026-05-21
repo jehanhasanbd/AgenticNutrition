@@ -6,7 +6,7 @@ import datetime
 
 from langchain_core.tools import tool
 
-_model = joblib.load("food_price_model.pkl")
+_model = joblib.load("agent/tools/food_price_model.pkl")
 
 class FoodPricePredictionInput(BaseModel):
     place: str = Field(
@@ -53,14 +53,14 @@ def get_local_food_prices(
     """
     if date:
         try:
-            parsed_date = datetime.strptime(date, "%Y-%m-%d")
+            parsed_date = datetime.datetime.strptime(date, "%Y-%m-%d")
         except ValueError:
             return (
                 f"Invalid date format '{date}'. Please use YYYY-MM-DD "
                 "(e.g. '2025-06-15')."
             )
     else:
-        parsed_date = datetime.today()
+        parsed_date = datetime.datetime.today()
 
     year = parsed_date.year
     month = parsed_date.month

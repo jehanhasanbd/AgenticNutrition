@@ -16,6 +16,11 @@ def infer_season(month:int, hemisphere: str="north") -> str:
 
 @tool("get_weather_and_season")
 def get_weather_and_season(latitude: float = 23.71, longitude: float = 90.42, hemisphere: str = "north"):
+    """
+        Returns current weather and seasonal information
+        for the user's location.
+    """
+
     season = infer_season(month=datetime.utcnow().month(), hemisphere=hemisphere)
     try:
         url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current_weather=true&hourly=temperature_2m,relative_humidity_2m"

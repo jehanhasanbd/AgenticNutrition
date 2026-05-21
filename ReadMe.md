@@ -34,25 +34,25 @@ AgenticNutrition/
 ├── app/
 │   └── frontend.py                # Streamlit UI
 ├── agent/
-│   ├── graph_builder.py           # LangGraph workflow            ✅
-│   ├── llm.py                     # LLM client (OpenAI/Groq/etc.) ✅ 
-│   ├── state.py                   # Agent state schema            ✅
+│   ├── graph_builder.py           # LangGraph workflow            
+│   ├── llm.py                     # LLM client (OpenAI/Groq/etc.) 
+│   ├── state.py                   # Agent state schema            
 │   ├── nodes/                     # Graph nodes
-│   │   ├── tool_context_node.py   # Tool fetching (weather, prices, location)  ✅
-│   │   ├── rag_node.py            # Retrieve relevant nutrition info           ✅
+│   │   ├── tool_context_node.py   # Tool fetching (weather, prices, location)  
+│   │   ├── rag_node.py            # Retrieve relevant nutrition info           
 │   │   └── generate_answer_node.py # Final answer generation
 │   ├── prompts/                   # Prompt templates
 │   │   └── prompt.py
 │   ├── rag/                       # RAG pipeline               
-│   │   ├── ehr_to_docs.py                                       ✅
-│   │   ├── retriever.py                                         ✅
-│   │   └── vectorstore.py                                       ✅
+│   │   ├── ehr_to_docs.py                                       
+│   │   ├── retriever.py                                         
+│   │   └── vectorstore.py                                       
 │   ├── safety/                    # Input/output safety
 │   │   └── safety.py
 │   └── tools/                     # Custom tools
-│       ├── user_location.py                                      ✅
-│       ├── weather_and_season.py                                 ✅
-│       └── local_food_prices.py                                  ✅
+│       ├── user_location.py                                      
+│       ├── weather_and_season.py                                 
+│       └── local_food_prices.py                                  
 ├── data/                          # Data sources
 │   ├── nutrition.csv
 │   ├── food_prices.csv
