@@ -1,6 +1,6 @@
 from .retriever import retrieve_ehr_context
 from .vectorstore import build_ehr_vectorstore
-from .rag import ehr_to_documents
+from .ehr_to_docs import ehr_to_documents
 
 __all__ = [
     "retrieve_ehr_context",

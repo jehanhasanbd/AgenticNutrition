@@ -39,14 +39,14 @@ AgenticNutrition/
 │   ├── state.py                   # Agent state schema            ✅
 │   ├── nodes/                     # Graph nodes
 │   │   ├── tool_context_node.py   # Tool fetching (weather, prices, location)  ✅
-│   │   ├── rag_node.py            # Retrieve relevant nutrition info
+│   │   ├── rag_node.py            # Retrieve relevant nutrition info           ✅
 │   │   └── generate_answer_node.py # Final answer generation
 │   ├── prompts/                   # Prompt templates
 │   │   └── prompt.py
-│   ├── rag/                       # RAG pipeline
-│   │   ├── rag.py
-│   │   ├── retriever.py
-│   │   └── vectorstore.py
+│   ├── rag/                       # RAG pipeline               
+│   │   ├── ehr_to_docs.py                                       ✅
+│   │   ├── retriever.py                                         ✅
+│   │   └── vectorstore.py                                       ✅
 │   ├── safety/                    # Input/output safety
 │   │   └── safety.py
 │   └── tools/                     # Custom tools

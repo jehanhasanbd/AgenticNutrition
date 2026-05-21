@@ -1,5 +1,8 @@
 from typing import Dict, Any
+import datetime
+
 from langchain_core.runnables import RunnableConfig
+
 
 from agent.state import AgentState
 from agent.tools import (
@@ -7,6 +10,8 @@ from agent.tools import (
     get_weather_and_season,
     get_local_food_prices
 )
+
+DEFAULT_COMMODITIES = ['Potatoes (Holland, white)', 'Wheat flour', 'Eggs (brown)', 'Sugar', 'Oil (palm)', 'Chili (green)', 'Gourd (bottle)', 'Papaya (green)', 'Spinach (malabar)', 'Fish (live, pangasius)', 'Lentils (masur)', 'Garlic (imported, China)', 'Onions (imported, China)', 'Snake gourd', 'Oil (soybean, fortified)', 'Rice (coarse)', 'Meat (chicken, broiler)', 'Bananas (ripe)', 'Spinach (red)', 'Rice (Kajla)', 'Rice (Nurjahan)', 'Rice (coarse, BR-8/ 11/, Guti Sharna)', 'Eggs (white)', 'Fish (dry, belt 10-12")', 'Milk (powder)', 'Chili (whole, dry, Indian Teja)', 'Hyacinth (sim)', 'Salt (iodized, Molla)', 'Dishwashing liquid', 'Laundry detergent', 'Toilet paper', 'Toothpaste', 'Chickpeas', 'Bananas (green)', 'Carrots', 'Eggplants', 'Ginger (imported)', 'Gourd (bitter)', 'Lemon (medium size)', 'Oranges (malta)', 'Pumpkin', 'Tomatoes (red)', 'Rice (BRRI-28)', 'Rice (BRRI-29)', 'Fish (live, tilapia)', 'Meat (beef)', 'Meat (chicken, sonali)', 'Turmeric (powder, Fresh)', 'Bathing soap', 'Fuel (diesel)', 'Fuel (kerosene)', 'Handwash soap', 'Oil (mustard)', 'Apples (royal gala)', 'Cabbage', 'Cucumber (short, khira)', 'Onions (imported, India)', 'Rice (Gazi)', 'Firewood', 'Fuel (gas)', 'Sanitary pads', 'Fish (tilapia, fresh)', 'Milk', 'Beans (mung, large grain)', 'Fuel (petrol)', 'Cauliflower', 'Ginger (local)']
 
 def tool_context_node(state: AgentState, config:RunnableConfig) -> Dict[str, Any]:
     """
@@ -58,16 +63,29 @@ def tool_context_node(state: AgentState, config:RunnableConfig) -> Dict[str, Any
     #---------------------------------------------------------
 
     price_location = location.get("city") or manual_location or "Dhaka"
+    today = datetime.datetime.today().strftime("%Y-%m-%d")
+    latitude = location['latitude']
+    longitude = location['longitude']
 
-    prices = get_local_food_prices.invoke({
-        "location_name":price_location
-    })
+    predicted_prices = []
+    for product in DEFAULT_COMMODITIES:
+        prediction = get_local_food_prices.invoke({
+            "place": price_location,
+            'product': product,
+            "latitude": float(latitude),
+            "longitude": float(longitude),
+            "date": today
+        })
+        predicted_prices.append({
+            "product":product,
+            'price':prediction
+        })
 
     tool_context = {
         "location": location,
-        "weather" : weather,
-        "prices": prices
+        "weather": weather,
+        "prices": predicted_prices
     }
     return {
-        "tool_context" : tool_context
+        "tool_context": tool_context
     }
