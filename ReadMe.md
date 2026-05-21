@@ -1,6 +1,4 @@
-Here’s a fancy, well-structured `README.md` for your **AgenticNutrition** project — designed to be visually appealing, informative, and developer-friendly.
 
-```markdown
 # 🥗 AgenticNutrition
 
 An intelligent, multi-agent nutrition assistant powered by LLMs, RAG, and real-time context-aware tools.*
@@ -9,13 +7,12 @@ An intelligent, multi-agent nutrition assistant powered by LLMs, RAG, and real-t
 ![Python](https://img.shields.io/badge/python-3.10%2B-green.svg)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.28%2B-red.svg)
 ![LangGraph](https://img.shields.io/badge/langgraph-0.0.20%2B-orange.svg)
-```
+
 ---
 
 ## 🌟 Overview
 
 **AgenticNutrition** is not just another diet app. It’s an **agentic reasoning system** that combines:
-```angular2html
 - 🧠 **LLM orchestration** via LangGraph  
 - 🔍 **RAG** from structured & unstructured nutrition data  
 - 🌦️ **Real-time context** (location, weather, seasonal food, local prices)  
@@ -24,7 +21,6 @@ An intelligent, multi-agent nutrition assistant powered by LLMs, RAG, and real-t
 
 Whether you're a developer exploring agentic workflows or a health-tech enthusiast, this project shows how **autonomous agents** can deliver personalized, safe, and actionable nutritional advice.
 
-```
 ---
 
 ## 🏗️ Project Structure
@@ -60,7 +56,36 @@ AgenticNutrition/
 │       ├── user_location.py                                      
 │       ├── weather_and_season.py                                 
 │       └──  local_food_prices.py
-
+├── eval/
+│    ├── __init__.py
+│    ├── runner/
+│    │   ├── __init__.py
+│    │   └── evaluation_runner.py          # Main orchestration logic (from run_eval.py)
+│    │
+│    ├── metrics/
+│    │   ├── __init__.py
+│    │   ├── structural_metrics.py         # structure_score, constraint_adherence
+│    │   ├── safety_metrics.py             # safety_rule_flags
+│    │   ├── tool_metrics.py               # tool_usage_score, strict_tool_value_usage
+│    │   └── retrieval_metrics.py          # precision_recall_at_k, keyword_recall
+│    │
+│    ├── judges/
+│    │   ├── __init__.py
+│    │   └── llm_judges.py                 # LLM-based evaluation (unchanged)
+│    │
+│    ├── io/
+│    │   ├── __init__.py
+│    │   └── file_handlers.py              # read_jsonl, write_jsonl, write_json
+│    │
+│    ├── aggregator/
+│    │   ├── __init__.py
+│    │   └── summary_aggregator.py         # avg(), aggregate() functions
+│    │
+│    └── core/
+│        ├── __init__.py
+│        ├── agent_runner.py               # run_agent_case(), new_thread_id(), now_ms()
+│        └── types.py                      # Type definitions (if needed)
+│
 ├── data/                          
 │   └── bangladeshi_food_price.csv
 ├── utils/
@@ -229,9 +254,9 @@ Thanks to the LangChain & Streamlit communities.
 
 ## 📬 Contact
 
-Project Lead: [Your Name]  
-GitHub: [@yourusername](https://github.com/yourusername)  
-Issues & Discussion: [GitHub Issues](https://github.com/yourusername/AgenticNutrition/issues)
+Project Lead: Jehan Hasna
+GitHub: [@jehanhasanbd](https://github.com/jehanhasanbd)  
+Issues & Discussion: [GitHub Issues](https://github.com/jehanhasanbd/AgenticNutrition/issues)
 
 ---
 

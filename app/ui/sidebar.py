@@ -9,45 +9,6 @@ from app.state.threads import (
     load_conversation,
     conversation_title
 )
-#
-# def render_sidebar():
-#     st.sidebar.title("🥗 Personalized Nutrition AI Agent")
-#
-#     # ---------------- New Chat ----------------
-#     if st.sidebar.button("➕ New Chat"):
-#         reset_chat()
-#
-#     # ---------------- Profile ----------------
-#     render_profile_section()
-#
-#     # ---------------- Constraints ----------------
-#     render_constraints_section()
-#
-#     # ---------------- EHR Upload ----------------
-#     render_ehr_upload()
-#
-#     # ---------------- Conversation List ----------------
-#     render_conversational_history()
-#
-#
-# def render_profile_section():
-#     st.sidebar.header("User Profile")
-#
-#     profile = default_user_profile()
-#
-#
-# def render_constraints_section():
-#     pass
-# def render_ehr_upload():
-#     pass
-# def render_conversational_history():
-#     pass
-
-
-
-# ----------------------------- Conversation Helpers -----------------------------
-
-
 
 # ----------------------------- Sidebar UI -----------------------------
 def render_sidebar():

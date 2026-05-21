@@ -48,3 +48,44 @@ def get_embedding_model():
             f"Unsupported embedding provider: {provider}"
         )
 
+def get_llm_instance_test():
+    """
+        This is the llm calling
+
+        Generic LLM loader.
+
+        Supported providers:
+        - openai
+        - anthropic
+        - gemini
+        - ollama
+    """
+    provider = os.getenv("LLM_PROVIDER_TEST",'openai').lower()
+    model = os.getenv("LLM_MODEL_TEST",'gpt-4o')
+    temperature = (os.getenv("LLM_TEMPERATURE_TEST","0.2"))
+
+    if provider == 'openai':
+        return ChatOpenAI(model=model, temperature=temperature)
+    elif provider == 'anthropic':
+        return ChatAnthropic(model=model,temperature=temperature)
+    elif provider == 'gemini':
+        return ChatGoogleGenerativeAI(model=model,temperature=temperature)
+    elif provider == 'ollama':
+        return ChatOllama(model=model,temperature=temperature)
+    else:
+        raise ValueError(f"Unsupported LLM provider: {provider}")
+
+
+def get_embedding_model_test():
+    """
+        Generic embedding model loader.
+    """
+    provider = os.getenv("EMBEDDING_PROVIDER","openai").lower()
+    model = os.getenv("EMBEDDING_MODEL","text-embedding-3-small")
+    if provider == 'openai':
+        return OpenAIEmbeddings(model=model)
+    else:
+        raise ValueError(
+            f"Unsupported embedding provider: {provider}"
+        )
+
