@@ -3,19 +3,19 @@ Here’s a fancy, well-structured `README.md` for your **AgenticNutrition** proj
 ```markdown
 # 🥗 AgenticNutrition
 
-> *An intelligent, multi-agent nutrition assistant powered by LLMs, RAG, and real-time context-aware tools.*
+An intelligent, multi-agent nutrition assistant powered by LLMs, RAG, and real-time context-aware tools.*
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.10%2B-green.svg)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.28%2B-red.svg)
 ![LangGraph](https://img.shields.io/badge/langgraph-0.0.20%2B-orange.svg)
-
+```
 ---
 
 ## 🌟 Overview
 
 **AgenticNutrition** is not just another diet app. It’s an **agentic reasoning system** that combines:
-
+```angular2html
 - 🧠 **LLM orchestration** via LangGraph  
 - 🔍 **RAG** from structured & unstructured nutrition data  
 - 🌦️ **Real-time context** (location, weather, seasonal food, local prices)  
@@ -24,48 +24,53 @@ Here’s a fancy, well-structured `README.md` for your **AgenticNutrition** proj
 
 Whether you're a developer exploring agentic workflows or a health-tech enthusiast, this project shows how **autonomous agents** can deliver personalized, safe, and actionable nutritional advice.
 
+```
 ---
 
 ## 🏗️ Project Structure
 
 ```bash
 AgenticNutrition/
-├── .venv/                         # Virtual environment
+├── .venv/                         
 ├── app/
-│   └── frontend.py                # Streamlit UI
+│   ├── state/               
+│   │   ├── session.py               
+│   │   └── thread.py              
+│   ├── frontend.py                
+│   └── ui/
+│       ├── chat.py               # Chat interface (Streamlit logic)
+│       └── sidebar.py           # Sidebar UI components
 ├── agent/
-│   ├── graph_builder.py           # LangGraph workflow            
-│   ├── llm.py                     # LLM client (OpenAI/Groq/etc.) 
-│   ├── state.py                   # Agent state schema            
-│   ├── nodes/                     # Graph nodes
-│   │   ├── tool_context_node.py   # Tool fetching (weather, prices, location)  
-│   │   ├── rag_node.py            # Retrieve relevant nutrition info           
-│   │   └── generate_answer_node.py # Final answer generation
-│   ├── prompts/                   # Prompt templates
-│   │   └── prompt.py
-│   ├── rag/                       # RAG pipeline               
-│   │   ├── ehr_to_docs.py                                       
-│   │   ├── retriever.py                                         
+│   ├── graph_builder.py           
+│   ├── llm.py                     
+│   ├── state.py                   
+│   ├── nodes/                     
+│   │   ├── tool_context_node.py   
+│   │   ├── rag_node.py            
+│   │   └── generate_answer_node.py
+│   ├── prompts/                   
+│   │   └── rag_prompt.py
+│   ├── rag/                       
+│   │   ├── ehr_to_docs.py                                        
+│   │   ├── retriever_module.py                                         
 │   │   └── vectorstore.py                                       
-│   ├── safety/                    # Input/output safety
+│   ├── safety/                    
 │   │   └── safety.py
-│   └── tools/                     # Custom tools
+│   └── tools/                     
 │       ├── user_location.py                                      
 │       ├── weather_and_season.py                                 
-│       └── local_food_prices.py                                  
-├── data/                          # Data sources
-│   ├── nutrition.csv
-│   ├── food_prices.csv
-│   └── ehr_sample.json
+│       └──  local_food_prices.py
+
+├── data/                          
+│   └── bangladeshi_food_price.csv
 ├── utils/
 │   └── helpers.py
 ├── .env
-├── llm_manager.py                 # Multi-provider LLM abstraction ✅
-├── main.py                        # Entry point
+├── llm_manager.py                 
+├── main.py                        
 ├── requirements.txt
 └── README.md
-```
-
+````
 ---
 
 ## 🚀 Getting Started
